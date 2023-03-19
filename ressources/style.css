@@ -1,0 +1,319 @@
+@keyframes spin {
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    color: #0ff;
+    transition: all .4s;
+    border-radius: 7px;
+    user-select: none;
+}
+
+body {
+    background-color: #121221;
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #000000 #28242b;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #232332;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #111;
+    border-radius: 5px;
+    border: 1px solid #0f0;
+}
+
+.content {
+    height: 100%;
+    width: 100%;
+    display: none;
+}
+
+.loading {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading .loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    border: 6px solid #0af;
+    border-radius: 50%;
+    border-top: 10px solid transparent;
+    animation: spin .7s linear infinite;
+}
+
+.loading .loading-text {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.loading .loading-bar {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 25px;
+    border-radius: 1em;
+    background-color: #000;
+}
+
+.loading .loading-bar .prog {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    border-radius: 1em;
+    background-color: #0af;
+}
+
+.loading .comp {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 20px;
+    color: #555;
+    font-size: 30px;
+    font-family: 'Kanit', sans-serif;
+}
+
+.loading .title {
+    position: absolute;
+    top: 5%;
+    font-family: 'Nova Square', cursive;
+    font-size: 80px;
+    margin: 20px;
+    font-weight: bold;
+    color: #0af;
+}
+
+.balance {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 30px;
+    font-weight: 700;
+    color: #0cf;
+    font-family: 'Nova Square', cursive;
+    padding: 5px 20px;
+    background: #000;
+    width: 500px;
+    border: thin #0cf solid;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.shop {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    background: #000;
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    background: #000;
+    border: thin #0cf solid;
+    overflow: hidden;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 1fr;
+}
+
+.shop img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.shop::-webkit-scrollbar {
+    width: 0
+}
+.shop:hover::-webkit-scrollbar {
+    width: 10px;
+}
+
+.shop:hover {
+    height: 500px;
+    width: calc(100% - 40px);
+    border-radius: 7px;
+    background: #111;
+}
+
+.shop:hover *:not(img) {
+    display: block;
+}
+
+.shop:hover img {
+    display: none;
+}
+
+shop *:not(img) {
+    display: none;
+}
+
+.shop .item {
+    position: relative;
+    width: calc(100% - 10px);
+    height: 100px;
+    margin: 5px;
+    background: #000;
+    border: thin #555 solid;
+    border-right-color: #aaa;
+    border-bottom-color: #aaa;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.shop .item:hover {
+    border: thin #0cf solid;
+    border-right-color: #0f0;
+    border-bottom-color: #0f0;
+    box-shadow: inset 0 0 30px #0f0;
+}
+
+.shop .item .item-name {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #0cf;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Sono', cursive;
+}
+
+.shop .item .item-quantity {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    color: #0cf;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Sono', cursive;
+    max-width: 500px;
+}
+
+.shop .item .item-price {
+    position: absolute;
+    bottom: 0;
+    right: 5px;
+    color: #0cf;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Sono', cursive;
+    max-width: 500px;
+}
+
+.shop .item .item-description {
+    position: absolute;
+    top: 35px;
+    left: 5px;
+    color: #0fa;
+    width: 40%;
+    background: #111;
+    font-size: 20px;
+    font-family: 'Sono', cursive;
+    padding: 5px;
+    height: 55px;
+    overflow: hidden;
+    overflow-y: auto;
+    line-break: auto;
+    word-break: break-all;
+}
+
+.inventory {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #000;
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    background: #000;
+    border: thin #0cf solid;
+    overflow: hidden;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 1fr;
+}
+
+.inventory img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.inventory::-webkit-scrollbar {
+    width: 0
+}
+
+.inventory:hover::-webkit-scrollbar {
+    width: 10px;
+}
+
+.inventory:hover {
+    height: 500px;
+    width: calc(100% - 40px);
+    border-radius: 7px;
+    background: #111;
+}
+
+.inventory:hover *:not(img) {
+    display: block;
+}
+
+.inventory:hover img {
+    display: none;
+}
+
+.inventory *:not(img) {
+    display: none;
+}
+
+.inventory .item {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    margin: 5px;
+    background: #000;
+    border: thin #555 solid;
+    border-right-color: #aaa;
+    border-bottom-color: #aaa;
+    border-radius: 10px;
+    overflow: hidden;
+}
